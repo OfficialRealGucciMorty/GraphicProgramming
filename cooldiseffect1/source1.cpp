@@ -22,7 +22,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
     bmi.bmiHeader.biBitCount = 32;
     bmi.bmiHeader.biCompression = BI_RGB;
 
-    std::vector<BYTE> pixels(w * h * 4);
+    std::vector<BYTE> denji(w * h * 4);
     std::vector<BYTE> frostedflakes(w * h * 4);
 
     float TIMEE = 0.0f;
@@ -30,7 +30,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
 
     while (true) {
         BitBlt(hMem, 0, 0, w, h, hdc, 0, 0, SRCCOPY);
-        GetDIBits(hMem, bmp, 0, h, pixels.data(), &bmi, DIB_RGB_COLORS);
+        GetDIBits(hMem, bmp, 0, h, denji.data(), &bmi, DIB_RGB_COLORS);
 
         TIMEE += 0.03f;
 
@@ -50,10 +50,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
                 int srcIdx = srcY * deez + srcX * 4;
                 int dstIdx = y * deez + x * 4;
 
-                frostedflakes[dstIdx] = pixels[srcIdx];
-                frostedflakes[dstIdx + 1] = pixels[srcIdx + 1];
-                frostedflakes[dstIdx + 2] = pixels[srcIdx + 2];
-                frostedflakes[dstIdx + 3] = pixels[srcIdx + 3];
+                frostedflakes[dstIdx] = denji[srcIdx];
+                frostedflakes[dstIdx + 1] = denji[srcIdx + 1];
+                frostedflakes[dstIdx + 2] = denji[srcIdx + 2];
+                frostedflakes[dstIdx + 3] = denji[srcIdx + 3];
             }
         }
 
