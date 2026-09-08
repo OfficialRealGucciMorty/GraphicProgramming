@@ -1,3 +1,5 @@
+// first file on the repo by G Mort
+//anyways, go through the source ig
 #include <windows.h>
 #include <vector>
 #include <cmath>
@@ -57,7 +59,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
         SetDIBits(hMem, bmp, 0, h, frostedflakes.data(), &bmi, DIB_RGB_COLORS);
         BitBlt(hdc, 0, 0, w, h, hMem, 0, 0, SRCCOPY);
 
-        Sleep(16);
+        Sleep(10);
     }
 
     DeleteObject(bmp);
@@ -65,3 +67,4 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int nCmdShow) {
     ReleaseDC(NULL, hdc);
     return 0;
 }
+//end of source
